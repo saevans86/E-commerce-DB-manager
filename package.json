@@ -12,7 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
     "mysql2": "^3.6.1",
+    "router": "^1.3.8",
+    "routes-router": "^4.3.1",
     "sequelize": "^6.33.0"
   }
 }
