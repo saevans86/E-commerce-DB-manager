@@ -23,6 +23,7 @@ Tag.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'tag',
+    
   }
 );
 

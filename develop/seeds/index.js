@@ -24,4 +24,4 @@ const seedAll = async () => {
 };
 
 seedAll();
-module.exports = router;
+

@@ -5,10 +5,11 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const getAllCategories = await Tag.findAll({
-      include: [{ model: Product }, {model: ProductTag}],
-    })
-    res.status(200).json(getAllCategories);
+    const findAllTags = await Tag.findAll({
+      include: [{model: Product}],
+    })//todo figure out why the id is also pulling tag_id
+    // console.log(findAllTags)
+    res.status(200).json(findAllTags);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,8 +19,9 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const singleTag = await ProductTag.findByPk(
-      [{ model: Product }, { model: ProductTag }]);
+    const singleTag = await Tag.findByPk(req.params.id, {
+      include: [{model: Product}]
+    });
     
     if (!singleTag) {
       res.status(404).json({ message: 'Not found.' });
