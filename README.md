@@ -8,12 +8,11 @@ E-commerce-DB-manager
 ## Description 
 This api app allows the rendering of an e-commerce product database which allows the user to manage inventory, add new items, update existing items and delete items. 
 
-- Going into this project my motivation was to be more familiar with database structures, and lean more into using modules for exporting and importing. The larning curve for me was not seeing exctly how my models were turning out until I most of the models and routes were mostly completed, so I felt a little lost not having a visual aid to reassure that what I was doing was correct. After running the seeds and getting it working in insomnia, it made testing the imports/models a lot smoother in terms of what needed to be corrected.
+- Going into this project my motivation was to be more familiar with database structures, and lean more into using modules for exporting and importing. The learning curve for me was not seeing exactly how my models were turning out until most of the models and routes were mostly completed, so I felt a little lost not having a visual aid to reassure me that what I was doing was correct. After running the seeds and getting it working through insomnia, it made testing the imports/models a lot smoother in terms of what needed to be corrected.
 
-- The main reason for building this was to create something, simple and easy to use but also effective in getting the job done. 
-It's fairly effective in updating products, changing the products tags/categories which makes for an excelllent resource for businesses who have multiple types of products. 
+- The main reason for building this was to create something simple and easy to use but also effective in getting the job done. It's fairly effective in updating products, changing the product tags/categories, which makes for an excellent resource for businesses who have multiple types of products.
 
-- My key takeaways from this project were how the databases communicate with each other as a whole, when one belongs to many, vs one, and how they interact. 
+- My key takeaways from this project were how the databases communicate with each other as a whole, when one belongs to many, vs one, and how they interact.
 
 
 
@@ -48,6 +47,10 @@ Once you've cloned the repo, you will need to install the node_modules and npm's
 ![The imagine below is an example of view all tags](./assets/img/Screenshot%202023-09-19%20132606.png)
 
 Additional screenshots available in the img folder under assets.
+
+
+
+https://github.com/saevans86/E-commerce-DB-manager/assets/130856120/3259fa66-934f-45a4-97ae-ced6b1c12f9f
 
 
     
