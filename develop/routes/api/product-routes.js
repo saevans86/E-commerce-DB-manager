@@ -36,17 +36,7 @@ router.get('/:id', async(req, res) => {
 
 // create new product
 router.post('/',  (req, res) => {
-  // try {
-  //   Product.create({
-  //     product_name: req.body.product_name,
-  //     price: req.body.price,
-  //     stock: req.body.stock,
-  //     tagIds: req.body.tagIds
-  //   });
-  //   res.status(200).json('CONNECTED');
-  // } catch (err) {
-  //   res.status(400).json(err);
-  // }
+
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -77,7 +67,7 @@ router.post('/',  (req, res) => {
     });
 });
 
-// update product
+
 router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
@@ -102,7 +92,7 @@ router.put('/:id', (req, res) => {
             };
           });
 
-            // figure out which ones to remove
+
           const productTagsToRemove = productTags
           .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
           .map(({ id }) => id);
@@ -117,7 +107,7 @@ router.put('/:id', (req, res) => {
       return res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
+
       res.status(400).json(err);
     });
 });
