@@ -1,3 +1,4 @@
+//alltag routes working
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
@@ -6,8 +7,8 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const findAllTags = await Tag.findAll({
-      include: [{model: Product}],
-    })//todo figure out why the id is also pulling tag_id
+      include: [{ model: Product }],
+    })
     // console.log(findAllTags)
     res.status(200).json(findAllTags);
   } catch (err) {
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const singleTag = await Tag.findByPk(req.params.id, {
-      include: [{model: Product}]
+      include: [{ model: Product }]
     });
     
     if (!singleTag) {
@@ -37,7 +38,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const newTag = await ProductTag.create(req.body);
+    const newTag = await Tag.create(req.body);
     res.status(200).json(newTag);
   } catch (err) {
     res.status(400).json(err);
@@ -46,7 +47,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  ProductTag.update(req.body, {
+  Tag.update(req.body, {
     where: {
       id: req.params.id,
     },
@@ -54,27 +55,27 @@ router.put('/:id', (req, res) => {
     .then((product) => {
       if (req.body.tagIds && req.body.tagIds.length) {
 
-        ProductTag.findAll({
+        Tag.findAll({
           where: { product_id: req.params.id }
         }).then((productTags) => {
-          const productTagIds = productTags.map(({ tag_id }) => tag_id);
+          const productTagIds = productTags.map(({ tag_name }) => tag_name);
           const newProductTags = req.body.tagIds
-            .filter((tag_id) => !productTagIds.includes(tag_id))
-            .map((tag_id) => {
+            .filter((tag_name) => !productTagIds.includes(tag_name))
+            .map((tag_name) => {
               return {
                 product_id: req.params.id,
-                tag_id,
+                tag_name,
               };
             });
 
           // figure out which ones to remove
           const productTagsToRemove = productTags
-            .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+            .filter(({ tag_name }) => !req.body.tagIds.includes(tag_name))
             .map(({ id }) => id);
           // run both actions
           return Promise.all([
-            Product.destroy({ where: { id: productTagsToRemove } }),
-            Product.bulkCreate(newProductTags),
+            Tag.destroy({ where: { id: productTagsToRemove } }),
+            Tag.bulkCreate(newProductTags),
           ]);
         });
       }

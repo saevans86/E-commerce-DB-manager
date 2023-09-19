@@ -35,7 +35,18 @@ router.get('/:id', async(req, res) => {
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post('/',  (req, res) => {
+  // try {
+  //   Product.create({
+  //     product_name: req.body.product_name,
+  //     price: req.body.price,
+  //     stock: req.body.stock,
+  //     tagIds: req.body.tagIds
+  //   });
+  //   res.status(200).json('CONNECTED');
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -113,7 +124,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const deleteID = await Tag.destroy({
+    const deleteID = await Product.destroy({
       where: { id: req.params.id }
     })
     if (!deleteID) {
