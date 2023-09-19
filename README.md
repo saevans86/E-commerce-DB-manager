@@ -56,7 +56,17 @@ https://github.com/saevans86/E-commerce-DB-manager/assets/130856120/3259fa66-934
     
 
 ## Credits 
-We were provided with a base code, no existing repo provided.
+Started code provided here
+- https://github.com/coding-boot-camp/fantastic-umbrella
+##### Others
+
+- MDN
+
+- STACK
+
+- MYSQL docs
+
+- Sequelizer docs
 
 
 
