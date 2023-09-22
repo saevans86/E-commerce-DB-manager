@@ -40,7 +40,7 @@ This app requires the following:
 
 ## Usage 
 
-Once you've cloned the repo, you will need to install the node_modules and npm's listed above, log in using mysql, create and initialize the database, then use npm run seed in the terminal to populate the data efrom the seeds folder, once done you can run node index.js and open the app in insonmia by entring your local host at port 3001, see the below screenshots:
+Once you've cloned the repo, you will need to install the node_modules and npm's listed above, log in using mysql, create and source the database which you can copy from the db/schema.sql file and paste into your terminal, then use npm run seed in the terminal to populate the data efrom the seeds folder, once done you can run node index.js and open the app in insonmia by entring your local host at port 3001, see the below screenshots:
 
 
 
@@ -50,7 +50,11 @@ Additional screenshots available in the img folder under assets.
 
 
 
-https://github.com/saevans86/E-commerce-DB-manager/assets/130856120/3259fa66-934f-45a4-97ae-ced6b1c12f9f
+
+https://github.com/saevans86/E-commerce-DB-manager/assets/130856120/c659089b-1712-4cb3-a4f6-b34c6781062f
+
+
+
 
 
     
