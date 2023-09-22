@@ -1,6 +1,9 @@
 const express = require('express');
-const routes = require('./develop/routes/api');
-// require('./develop/seeds')
+const routes = require('./routes/api');
+
+
+const seed = require('./seeds/index');
+console.log(seed)
 
 
 const app = express();
