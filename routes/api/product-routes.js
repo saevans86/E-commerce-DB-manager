@@ -1,6 +1,7 @@
+// pull models
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
-
+//get all products
 router.get('/', async (req, res) => {
   try {
     const getAllCategories = await Product.findAll({
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
 
 });
 
-
+//get one product
 router.get('/:id', async(req, res) => {
   try {
     const getProduct = await Product.findByPk(req.params.id)
@@ -28,7 +29,7 @@ router.get('/:id', async(req, res) => {
 
 });
 
-
+//create product
 router.post('/',  (req, res) => {
 
 
@@ -44,7 +45,7 @@ router.post('/',  (req, res) => {
         });
         return ProductTag.bulkCreate(productTagIdArr);
       }
-      // if no product tags, just respond
+
       res.status(200).json(product);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
@@ -54,7 +55,7 @@ router.post('/',  (req, res) => {
     });
 });
 
-
+//update product
 router.put('/:id', (req, res) => {
 
   Product.update(req.body, {
@@ -99,6 +100,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+//delete
 router.delete('/:id', async (req, res) => {
   try {
     const deleteID = await Product.destroy({

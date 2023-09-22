@@ -1,8 +1,9 @@
-
+//pull models
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
 
+//get all categories
 router.get('/', async (req, res) => {
   try {
     const getAllCategories = await Category.findAll({
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
 
 });
 
+// get one category by ID
 router.get('/:id', async (req, res) => {
   try {
     const singleCategory = await Category.findByPk(req.params.id, {
@@ -34,6 +36,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
+//creates a new category
 router.post('/', async (req, res) => {
   try {
     const newCategory = await Category.create(req.body);
@@ -41,6 +44,7 @@ router.post('/', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
+  // updates new category
   router.put('/:id', (req, res) => {
     Category.update(req.body, {
       where: {
@@ -84,7 +88,8 @@ router.post('/', async (req, res) => {
   });
 });
 
-//delete by id
+
+//delete category
 router.delete('/:id', async (req, res) => {
   try {
     const deleteCatbyId = await Category.destroy({

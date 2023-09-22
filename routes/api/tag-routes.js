@@ -1,8 +1,8 @@
-
+//pull models
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-
+//get all
 router.get('/', async (req, res) => {
   try {
     const findAllTags = await Tag.findAll({
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 
 });
-
+//get by one
 router.get('/:id', async (req, res) => {
   try {
     const singleTag = await Tag.findByPk(req.params.id, {
@@ -33,6 +33,7 @@ router.get('/:id', async (req, res) => {
 
 });
 
+//create new
 router.post('/', async (req, res) => {
   try {
     const newTag = await Tag.create(req.body);
@@ -43,6 +44,7 @@ router.post('/', async (req, res) => {
 
 });
 
+//update
 router.put('/:id', (req, res) => {
   Tag.update(req.body, {
     where: {
@@ -85,7 +87,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-
+//delete
 router.delete('/:id', async (req, res) => {
   try {
     const deleteID = await Tag.destroy({
